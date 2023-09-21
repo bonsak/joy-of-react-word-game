@@ -15,6 +15,7 @@ function GuessInput({ gameStatus, handleSubmitGuess, inputRef }) {
     <form onSubmit={handleSubmit} className='guess-input-wrapper'>
       <label htmlFor='guess-input'>Enter guess:</label>
       <input
+        autoFocus
         required
         disabled={gameStatus !== 'running'}
         minLength={5}
