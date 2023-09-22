@@ -224,7 +224,7 @@ h1 {
 */
 @keyframes slideUp {
   from {
-    transform: translateY(100%);
+    transform: translateY(200%);
   }
   to {
     transform: translateY(0%);

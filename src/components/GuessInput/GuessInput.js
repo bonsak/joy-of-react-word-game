@@ -1,7 +1,13 @@
 import React from 'react'
 
-function GuessInput({ gameStatus, handleSubmitGuess, inputRef }) {
+function GuessInput({ gameStatus, handleSubmitGuess, answer }) {
   const [tentativeGuess, setTentativeGuess] = React.useState('')
+
+  const focusRef = React.useRef()
+
+  React.useEffect(() => {
+    focusRef.current.focus()
+  }, [answer])
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -15,7 +21,7 @@ function GuessInput({ gameStatus, handleSubmitGuess, inputRef }) {
     <form onSubmit={handleSubmit} className='guess-input-wrapper'>
       <label htmlFor='guess-input'>Enter guess:</label>
       <input
-        autoFocus
+        ref={focusRef}
         required
         disabled={gameStatus !== 'running'}
         minLength={5}
